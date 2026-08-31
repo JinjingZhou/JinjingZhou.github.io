@@ -1,0 +1,2536 @@
+/* 基础设置 */
+:root {
+  --content-width: 1280px;
+  --gradient-start: #e8c5d2;
+  --gradient-end: #a8cfdb;
+
+  --text: #173128;
+  --secondary-text: #5f6d66;
+  --surface: #fffdf8;
+  --accent: #a1402f;
+  --line: rgba(23, 49, 40, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    var(--gradient-end) 100%
+  );
+ 
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(var(--content-width), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* 导航 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.navigation {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* 汉堡菜单按钮，电脑端隐藏 */
+.menu-toggle {
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  display: block;
+  background: var(--text);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* 展开时变成 × */
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 首页 */
+.hero {
+  min-height: 620px;
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow,
+.section-number {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  max-width: 800px;
+  margin-bottom: 24px;
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: normal;
+  line-height: 1.05;
+}
+
+.introduction {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 34px;
+  color: var(--secondary-text);
+  font-size: 19px;
+}
+
+.button {
+  padding: 13px 18px;
+  display: inline-block;
+  background: var(--text);
+  color: var(--surface);
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--accent);
+}
+
+/* 内容区域 */
+.section {
+  padding: 110px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 44px;
+  font-weight: normal;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+}
+
+/* 工作与教育经历 */
+.experience-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.experience-content {
+  max-width: none;
+  margin-left: 0;
+}
+
+.experience-item {
+  margin-bottom: 36px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-item strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+
+.experience-item p {
+  margin: 0;
+  color: var(--secondary-text);
+}
+
+.projects-section {
+  --sticky-start: 90px;
+  --header-height: 62px;
+  --drawer-distance: 430px;
+}
+
+/* 所有作品卡片的容器 */
+.project-stack {
+  position: relative;
+  margin-top: 48px;
+  padding-bottom: 0;
+}
+
+.project-stack::after {
+  content: "";
+  display: block;
+  height: 700px;
+}
+
+/* 每一张作品卡片 */
+.project-card {
+  position: sticky;
+  top: var(--sticky-start);
+  margin-bottom: 90px;
+  overflow: hidden;
+  background: transparent;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* 抽屉打开时，后面的卡片只在原有层级中向下移动 */
+.project-card.is-shifted {
+  transform: translateY(var(--drawer-distance));
+}
+
+/*第一张卡片*/
+.project-card:nth-child(1) {
+  z-index: 1;
+}
+
+/* 第二张卡片停在第一张标题栏下面 */
+.project-card:nth-child(2) {
+  top: calc(
+    var(--sticky-start) + var(--header-height)
+  );
+  z-index: 2;
+}
+
+/* 第三张停在第二张标题栏下面 */
+.project-card:nth-child(3) {
+  top: calc(
+    var(--sticky-start) +
+    var(--header-height) +
+    var(--header-height)
+  );
+  z-index: 3;
+}
+
+/* 第四张停在第三张标题栏下面 */
+.project-card:nth-child(4) {
+  top: calc(
+    var(--sticky-start) +
+    var(--header-height) +
+    var(--header-height) +
+    var(--header-height)
+  );
+  z-index: 4;
+}
+
+/* 第五张停在第四张标题栏下面 */
+.project-card:nth-child(5) {
+  top: calc(
+    var(--sticky-start) +
+    var(--header-height) +
+    var(--header-height) +
+    var(--header-height) +
+    var(--header-height)
+  );
+  z-index: 5;
+}
+
+/* 第六张停在第五张标题栏下面 */
+.project-card:nth-child(6) {
+  top: calc(
+    var(--sticky-start) +
+    var(--header-height) +
+    var(--header-height) +
+    var(--header-height) +
+    var(--header-height) +
+    var(--header-height)
+  );
+  z-index: 6;
+}
+
+/* 卡片上方的编号栏 */
+.project-card-header {
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+
+  /* 半透明底色与极淡斜线 */
+  background:
+    linear-gradient(
+      90deg,
+     rgba(232, 197, 210, 0.45),
+     rgba(168, 207, 219, 0.45)
+    );
+    
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+  border: 0;
+  border-bottom: 1px solid rgba(20, 48, 41, 0.14);
+  transition:
+    filter 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-card-header:hover {
+  filter: brightness(1.05);
+}
+
+.project-card-header:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.project-card.is-open .project-card-header {
+  border-bottom-color: rgba(20, 48, 41, 0.2);
+  filter: brightness(1.05);
+}
+
+/* 图片和文字的两列结构 */
+.project-card-body {
+  min-height: 430px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+}
+
+/* 缩略图 */
+.project-thumbnail {
+  min-height: 430px;
+  display: block;
+  overflow: hidden;
+}
+
+a.project-thumbnail {
+  cursor: pointer;
+}
+
+.project-thumbnail img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-thumbnail img {
+  transform: scale(1.05);
+}
+
+.project-thumbnail:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/*右侧项目文字*/
+.project-information {
+  padding: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-information h3 {
+  margin-bottom: 12px;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.project-type {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/*流动进入动画*/
+.js .scroll-reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.js .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 让抽屉位移优先于原来的滚动淡入动画 */
+.js .project-card.scroll-reveal {
+  transition:
+    opacity 0.8s ease,
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js .project-card.scroll-reveal.is-visible.is-shifted {
+  transform: translateY(var(--drawer-distance));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .project-card.scroll-reveal {
+    transition: none;
+  }
+}
+
+.project-detail {
+  padding: 80px 0 120px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 70px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.project-detail-header {
+  max-width: 900px;
+  margin-bottom: 60px;
+}
+
+.project-detail-header h1 {
+  margin-bottom: 28px;
+}
+
+.project-summary {
+  max-width: none;
+  color: var(--secondary-text);
+  font-size: 21px;
+}
+
+.project-detail-cover {
+  width: 100%;
+  max-height: 760px;
+  display: block;
+  object-fit: cover;
+}
+
+.project-detail-content {
+  width: 100%;
+  max-width: none;
+  margin: 80px 0 0;
+  text-align: left;
+}
+
+.project-detail-content h2 {
+  margin-top: 70px;
+}
+
+.project-detail-content p {
+  color: var(--secondary-text);
+}
+
+.email-link {
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-size: 24px;
+}
+
+/* 页脚 */
+footer {
+  padding: 34px 0;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  color: var(--text);
+  border-top: 1px solid var(--line);
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+/* Healing Fragments 深色详情页 */
+body.project-page-dark {
+  --text: #f5f5f2;
+  --secondary-text: #b8c0c3;
+  --accent: #d4edf2;
+  --line: rgba(255, 255, 255, 0.16);
+
+  min-height: 100vh;
+  color: var(--text);
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(72, 108, 122, 0.4) 0%,
+      rgba(15, 19, 23, 0) 42%
+    ),
+    linear-gradient(
+      150deg,
+      #171c20 0%,
+      #090b0d 55%,
+      #000000 100%
+    );
+
+  background-attachment: fixed;
+}
+
+/* 项目详情页顶部返回导航 */
+.project-detail-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+
+  background: rgba(5, 8, 10, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.project-detail-nav .container {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-nav .back-link {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-detail-nav .back-link:hover {
+  color: #ffffff;
+  transform: translateX(-4px);
+}
+
+.case-studies {
+  margin-top: 120px;
+}
+
+.case-studies > h2,
+.related-theory > h2 {
+  margin-bottom: 32px;
+  font-size: 32px;
+}
+
+.case-study-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 7vw, 100px);
+  align-items: start;
+}
+
+.case-study-images figure {
+  margin: 0;
+}
+
+.case-study-images img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+}
+
+.case-study-images figcaption {
+  margin-top: 14px;
+  color: var(--secondary-text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.related-theory {
+  width: 100%;
+  max-width: none;
+  margin-top: 100px;
+}
+
+.theory-list {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.theory-list li {
+  width: 100%;
+  margin-bottom: 18px;
+  color: var(--secondary-text);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* 括号中的引用使用斜体 */
+.citation {
+  color: var(--text);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* 宽屏时保持项目摘要和理论条目各占一行 */
+@media (min-width: 1100px) {
+  .project-summary,
+  .theory-list li {
+    white-space: nowrap;
+  }
+}
+
+.technical-section {
+  margin-top: 120px;
+}
+
+.technical-heading {
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+
+.technical-heading h2 {
+  margin: 8px 0 20px;
+  font-size: 32px;
+}
+
+.technical-heading > p:last-child {
+  color: var(--secondary-text);
+}
+
+.section-label {
+  margin: 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  min-height: 180px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+}
+
+.tool-card img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.tool-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.tool-card p {
+  margin: 0;
+  color: var(--secondary-text);
+  line-height: 1.5;
+}
+
+.development-process {
+  width: 100%;
+  margin-top: 120px;
+}
+
+.development-header {
+  margin-bottom: 44px;
+}
+
+.development-header h2 {
+  margin: 10px 0 0;
+  font-size: clamp(32px, 4vw, 52px);
+}
+
+.development-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(30px, 6vw, 80px);
+  align-items: start;
+}
+
+.development-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.development-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.development-figure figcaption {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 16px;
+  color: var(--secondary-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.worldbuilding-section {
+  width: 100%;
+  margin-top: 120px;
+}
+
+.worldbuilding-header {
+  margin-bottom: 38px;
+}
+
+.worldbuilding-header h2 {
+  margin: 10px 0 0;
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.worldbuilding-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 6vw, 80px);
+  align-items: stretch;
+}
+
+.worldbuilding-introduction {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.worldbuilding-introduction p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--secondary-text);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.worldbuilding-introduction img,
+.worldbuilding-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.worldbuilding-introduction img {
+  margin-top: auto;
+}
+
+.worldbuilding-gallery {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.worldbuilding-gallery img:last-child {
+  margin-top: auto;
+}
+
+.effects-section {
+  width: 100%;
+  margin-top: 120px;
+}
+
+.effects-header {
+  margin-bottom: 38px;
+}
+
+.effects-header h2 {
+  margin: 10px 0 0;
+}
+
+.effects-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.4fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 100px);
+  align-items: start;
+}
+
+.effects-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.effects-figure img {
+  width: 100%;
+  height: 500px;
+  display: block;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.effects-figure figcaption {
+  min-height: 44px;
+  margin-top: 16px;
+  color: var(--secondary-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.interaction-section {
+  width: 100%;
+  margin-top: 120px;
+}
+
+.interaction-header {
+  margin-bottom: 48px;
+}
+
+.interaction-header h2 {
+  margin: 0;
+}
+
+.interaction-list {
+  display: grid;
+  gap: 80px;
+}
+
+.interaction-item {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.interaction-item h3 {
+  margin: 0 0 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.interaction-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.iteration-notes {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.iteration-note {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+}
+
+.iteration-note h3 {
+  margin: 0 0 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.iteration-note ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.iteration-note li {
+  margin-bottom: 16px;
+  color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+.iteration-note li:last-child {
+  margin-bottom: 0;
+}
+
+.bibliography-section {
+  width: 100%;
+  margin-top: 120px;
+  padding-top: 70px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.bibliography-section h2 {
+  margin-bottom: 42px;
+}
+
+.bibliography-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.bibliography-list li {
+  margin-bottom: 22px;
+  color: var(--secondary-text);
+  line-height: 1.65;
+}
+
+.bibliography-list li:last-child {
+  margin-bottom: 0;
+}
+
+.bibliography-list cite {
+  color: var(--text);
+}
+
+.bibliography-list a {
+  color: inherit;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.bibliography-list a:hover {
+  color: #ffffff;
+}
+
+/* 项目详情页的章节标题统一字号 */
+.project-page-dark main h2 {
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.project-explanation-video {
+  width: 100%;
+  margin-top: 120px;
+  padding-top: 70px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.project-explanation-video h2 {
+  margin-bottom: 20px;
+}
+
+.project-explanation-video > p {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 40px;
+  color: var(--secondary-text);
+  white-space: nowrap;
+}
+
+.youtube-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000000;
+}
+
+.youtube-video iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.project-footer {
+  margin-top: 120px;
+  padding: 42px 0;
+  background: rgba(5, 8, 10, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.project-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.project-footer p {
+  margin: 0;
+  color: var(--secondary-text);
+  font-size: 14px;
+}
+
+.project-footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.project-footer-links a {
+  color: var(--secondary-text);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.project-footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Project 02：Unexpected Visitors */
+.project-two-page {
+  padding-top: 90px;
+}
+
+.project-two-intro {
+  padding-bottom: 30px;
+}
+
+.project-two-intro h1 {
+  max-width: 1100px;
+  margin: 18px 0 30px;
+}
+
+.project-two-summary {
+  max-width: 900px;
+  margin-bottom: 36px;
+  color: var(--secondary-text);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.project-two-meta {
+  margin: 0 0 38px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+  list-style: none;
+}
+
+.project-two-meta li {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.project-two-meta span {
+  margin-bottom: 5px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-two-gallery {
+  width: min(1600px, calc(100% - 48px));
+  margin: 80px auto 0;
+  display: grid;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.project-two-image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.project-two-image a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.project-two-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-two-image:hover img {
+  transform: scale(1.01);
+}
+
+.project-two-intro .button {
+  color: #000000;
+}
+
+/* Project 03：Strange Symbols */
+.project-three-page {
+  padding-top: 90px;
+}
+
+.project-three-intro {
+  padding-bottom: 30px;
+}
+
+.project-three-intro h1 {
+  max-width: 1100px;
+  margin: 18px 0 30px;
+}
+
+.project-three-summary {
+  max-width: 900px;
+  margin-bottom: 36px;
+  color: var(--secondary-text);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.project-three-meta {
+  margin: 0 0 38px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+  list-style: none;
+}
+
+.project-three-intro .button,
+.project-three-intro .button:hover {
+  color: #000000;
+}
+
+.project-three-meta li {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.project-three-meta span {
+  margin-bottom: 5px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-three-gallery {
+  width: min(1280px, calc(100% - 48px));
+  margin: 80px auto 0;
+  display: grid;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.project-three-image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.project-three-image a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.project-three-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-three-image:hover img {
+  transform: scale(1.01);
+}
+
+/* Project 04：Fear Trigger Box */
+.project-four-page {
+  padding-top: 90px;
+}
+
+.project-four-intro {
+  padding-bottom: 30px;
+}
+
+.project-four-intro h1 {
+  max-width: 1100px;
+  margin: 18px 0 30px;
+}
+
+.project-four-summary {
+  max-width: 900px;
+  margin-bottom: 36px;
+  color: var(--secondary-text);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.project-four-meta {
+  margin: 0 0 38px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+  list-style: none;
+}
+
+.project-four-meta li {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.project-four-meta span {
+  margin-bottom: 5px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-four-intro .button,
+.project-four-intro .button:hover {
+  color: #000000;
+}
+
+.project-four-gallery {
+  width: min(1280px, calc(100% - 48px));
+  margin: 80px auto 0;
+  display: grid;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.project-four-image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.project-four-image a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.project-four-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-four-image:hover img {
+  transform: scale(1.01);
+}
+
+/* Project 05：Cyclic Tree */
+.project-five-page {
+  padding-top: 90px;
+}
+
+.project-five-intro {
+  padding-bottom: 30px;
+}
+
+.project-five-intro h1 {
+  max-width: 1100px;
+  margin: 18px 0 30px;
+}
+
+.project-five-summary {
+  max-width: 900px;
+  margin-bottom: 36px;
+  color: var(--secondary-text);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.project-five-meta {
+  margin: 0 0 38px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+  list-style: none;
+}
+
+.project-five-meta li {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.project-five-meta span {
+  margin-bottom: 5px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-five-intro .button,
+.project-five-intro .button:hover {
+  color: #000000;
+}
+
+.project-five-gallery {
+  width: min(1280px, calc(100% - 48px));
+  margin: 80px auto 0;
+  display: grid;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.project-five-image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.project-five-image a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.project-five-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-five-image:hover img {
+  transform: scale(1.01);
+}
+
+/* Project 06：The Safest Keyboard */
+.project-six-page {
+  padding-top: 90px;
+}
+
+.project-six-intro {
+  padding-bottom: 30px;
+}
+
+.project-six-intro h1 {
+  max-width: 1100px;
+  margin: 18px 0 30px;
+}
+
+.project-six-summary {
+  max-width: 900px;
+  margin-bottom: 36px;
+  color: var(--secondary-text);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.project-six-meta {
+  margin: 0 0 38px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+  list-style: none;
+}
+
+.project-six-meta li {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.project-six-meta span {
+  margin-bottom: 5px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-six-intro .button,
+.project-six-intro .button:hover {
+  color: #000000;
+}
+
+.project-six-gallery {
+  width: min(1280px, calc(100% - 48px));
+  margin: 80px auto 0;
+  display: grid;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.project-six-image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.project-six-image a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.project-six-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-six-image:hover img {
+  transform: scale(1.01);
+}
+
+/* 本科阶段精选作品 */
+.early-works-section {
+  border-top: 1px solid var(--line);
+}
+
+.early-works-heading {
+  max-width: 780px;
+}
+
+.early-works-intro {
+  margin: 22px 0 0;
+  color: var(--secondary-text);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.early-works-grid {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px 32px;
+}
+
+.early-work-card {
+  min-width: 0;
+}
+
+.early-work-link {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.early-work-image {
+  aspect-ratio: 7 / 3;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.early-work-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.early-work-link:hover .early-work-image img {
+  transform: scale(1.025);
+  filter: brightness(1.04);
+}
+
+.early-work-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.early-work-info {
+  padding: 18px 2px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.early-work-info h3 {
+  margin: 0 0 6px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.early-work-info p,
+.early-work-info span {
+  margin: 0;
+  color: var(--secondary-text);
+  font-size: 13px;
+}
+
+.early-work-info span {
+  padding-top: 7px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Sigur IP Design：本科精选作品详情页 */
+.sigur-page {
+  --text: #2f3f3b;
+  --secondary-text: #66746f;
+  --accent: #b06b37;
+  --line: rgba(47, 63, 59, 0.16);
+
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(246, 198, 112, 0.24) 0%,
+      rgba(246, 198, 112, 0) 34%
+    ),
+    linear-gradient(145deg, #f8f5ef 0%, #edf2f1 100%);
+}
+
+.sigur-page .project-detail-nav {
+  background: rgba(248, 245, 239, 0.72);
+  border-bottom: 1px solid var(--line);
+}
+
+.sigur-page .project-detail-nav .back-link {
+  color: var(--secondary-text);
+}
+
+.sigur-page .project-detail-nav .back-link:hover {
+  color: var(--text);
+}
+
+.sigur-main {
+  padding: 88px 0 0;
+}
+
+.sigur-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-items: center;
+}
+
+.sigur-copy {
+  width: 100%;
+}
+
+.sigur-label {
+  margin: 0 0 20px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sigur-copy h1 {
+  margin: 0 0 12px;
+  font-size: clamp(52px, 7vw, 96px);
+  line-height: 0.98;
+  white-space: nowrap;
+}
+
+.sigur-date {
+  margin: 0 0 34px;
+  color: var(--secondary-text);
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.sigur-overview p {
+  margin: 0 0 18px;
+  color: var(--secondary-text);
+  font-size: clamp(13px, 1.05vw, 18px);
+  line-height: 1.75;
+  white-space: nowrap;
+}
+
+.sigur-hero-image,
+.sigur-character-image {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.sigur-hero-image img,
+.sigur-character-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sigur-character-section {
+  margin-top: 120px;
+}
+
+.sigur-character-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(42px, 6vw, 88px);
+  align-items: start;
+}
+
+.sigur-character-copy {
+  position: sticky;
+  top: 112px;
+}
+
+.sigur-character-copy h2 {
+  margin: 0 0 26px;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.08;
+}
+
+.sigur-character-copy > p:last-child {
+  margin: 0;
+  color: var(--secondary-text);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.sigur-character-image figcaption {
+  padding: 14px 18px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.sigur-page .project-footer {
+  background: rgba(248, 245, 239, 0.62);
+  border-top: 1px solid var(--line);
+}
+
+.sigur-page .project-footer p,
+.sigur-page .project-footer-links a {
+  color: var(--secondary-text);
+}
+
+.sigur-page .project-footer-links a:hover {
+  color: var(--text);
+}
+
+/* In5omnia：本科精选作品详情页 */
+.insomnia-page {
+  --text: #fff4fc;
+  --secondary-text: #d8bfd3;
+  --accent: #ff70e4;
+  --line: rgba(255, 255, 255, 0.15);
+
+  background:
+    radial-gradient(
+      circle at 18% 10%,
+      rgba(218, 41, 181, 0.32) 0%,
+      rgba(218, 41, 181, 0) 36%
+    ),
+    linear-gradient(145deg, #351d29 0%, #21151d 55%, #120c11 100%);
+}
+
+.insomnia-page .project-detail-nav {
+  background: rgba(32, 17, 26, 0.72);
+  border-bottom-color: var(--line);
+}
+
+.insomnia-page .project-detail-nav .back-link,
+.insomnia-page .project-footer p,
+.insomnia-page .project-footer-links a {
+  color: var(--secondary-text);
+}
+
+.insomnia-page .project-detail-nav .back-link:hover,
+.insomnia-page .project-footer-links a:hover {
+  color: var(--text);
+}
+
+.insomnia-page .sigur-date {
+  margin-bottom: 8px;
+}
+
+.insomnia-credit {
+  margin: 0 0 34px;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.insomnia-showcase-section {
+  margin-top: 96px;
+}
+
+.insomnia-project-image {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.insomnia-project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.insomnia-project-image figcaption {
+  padding: 14px 18px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.insomnia-page .project-footer {
+  background: rgba(18, 12, 17, 0.48);
+  border-top-color: var(--line);
+}
+
+/* Military-style IP Design：本科精选作品详情页 */
+.military-page {
+  --text: #f5f6f8;
+  --secondary-text: #b9c1cc;
+  --accent: #db5a59;
+  --line: rgba(255, 255, 255, 0.15);
+
+  background:
+    radial-gradient(
+      circle at 16% 10%,
+      rgba(69, 84, 126, 0.42) 0%,
+      rgba(69, 84, 126, 0) 38%
+    ),
+    linear-gradient(145deg, #1a202d 0%, #10141c 58%, #090b10 100%);
+}
+
+.military-page .project-detail-nav {
+  background: rgba(13, 17, 24, 0.74);
+  border-bottom-color: var(--line);
+}
+
+.military-page .project-detail-nav .back-link,
+.military-page .project-footer p,
+.military-page .project-footer-links a {
+  color: var(--secondary-text);
+}
+
+.military-page .project-detail-nav .back-link:hover,
+.military-page .project-footer-links a:hover {
+  color: var(--text);
+}
+
+.military-page .sigur-copy h1 {
+  font-size: clamp(48px, 6vw, 82px);
+}
+
+.insomnia-page .sigur-overview p,
+.military-page .sigur-overview p {
+  max-width: 1200px;
+  font-size: 18px;
+  white-space: normal;
+}
+
+.military-credit {
+  margin: 26px 0 34px;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.military-showcase-section {
+  margin-top: 96px;
+}
+
+.military-project-image {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.military-project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.military-project-image figcaption {
+  padding: 14px 18px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.military-page .project-footer {
+  background: rgba(9, 11, 16, 0.5);
+  border-top-color: var(--line);
+}
+
+/* Travel Trial：本科精选作品详情页 */
+.travel-page {
+  --text: #f5f7f7;
+  --secondary-text: #bec8c9;
+  --accent: #9fbfc2;
+  --line: rgba(255, 255, 255, 0.15);
+
+  background:
+    radial-gradient(
+      circle at 18% 9%,
+      rgba(73, 99, 105, 0.5) 0%,
+      rgba(73, 99, 105, 0) 38%
+    ),
+    linear-gradient(145deg, #171824 0%, #10131b 58%, #080a0f 100%);
+}
+
+.travel-page .project-detail-nav {
+  background: rgba(12, 14, 21, 0.74);
+  border-bottom-color: var(--line);
+}
+
+.travel-page .project-detail-nav .back-link,
+.travel-page .project-footer p,
+.travel-page .project-footer-links a {
+  color: var(--secondary-text);
+}
+
+.travel-page .project-detail-nav .back-link:hover,
+.travel-page .project-footer-links a:hover {
+  color: var(--text);
+}
+
+.travel-page .sigur-overview p {
+  max-width: 1200px;
+  font-size: 18px;
+  white-space: normal;
+}
+
+.travel-page .sigur-hero-grid {
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(42px, 6vw, 88px);
+  align-items: start;
+}
+
+.travel-page .sigur-copy h1 {
+  font-size: clamp(52px, 6vw, 82px);
+}
+
+.travel-showcase-section {
+  margin-top: 96px;
+}
+
+.travel-gallery {
+  display: grid;
+  gap: 48px;
+}
+
+.travel-hero-image,
+.travel-project-image {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.travel-hero-image img,
+.travel-project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.travel-hero-image figcaption,
+.travel-project-image figcaption {
+  padding: 14px 18px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.travel-page .project-footer {
+  background: rgba(8, 10, 15, 0.52);
+  border-top-color: var(--line);
+}
+
+/* Sleep：本科精选作品详情页 */
+.sleep-page {
+  --text: #fff7ff;
+  --secondary-text: #d7c7dc;
+  --accent: #d59bd8;
+  --line: rgba(255, 255, 255, 0.15);
+
+  background:
+    radial-gradient(
+      circle at 18% 10%,
+      rgba(132, 90, 157, 0.46) 0%,
+      rgba(132, 90, 157, 0) 38%
+    ),
+    linear-gradient(145deg, #24182f 0%, #151121 58%, #090812 100%);
+}
+
+.sleep-page .project-detail-nav {
+  background: rgba(20, 15, 29, 0.74);
+  border-bottom-color: var(--line);
+}
+
+.sleep-page .project-detail-nav .back-link,
+.sleep-page .project-footer p,
+.sleep-page .project-footer-links a {
+  color: var(--secondary-text);
+}
+
+.sleep-page .project-detail-nav .back-link:hover,
+.sleep-page .project-footer-links a:hover {
+  color: var(--text);
+}
+
+.sleep-page .sigur-overview p {
+  max-width: 1120px;
+  font-size: 18px;
+  white-space: normal;
+}
+
+.sleep-page .sigur-hero-grid {
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(42px, 6vw, 88px);
+  align-items: start;
+}
+
+.sleep-showcase-section {
+  margin-top: 96px;
+}
+
+.sleep-featured-image,
+.sleep-series-image {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.sleep-featured-image img,
+.sleep-series-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sleep-featured-image figcaption,
+.sleep-series-image figcaption {
+  padding: 14px 18px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.sleep-series-grid {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px 30px;
+}
+
+.sleep-page .project-footer {
+  background: rgba(9, 8, 18, 0.52);
+  border-top-color: var(--line);
+}
+
+/* 手机端布局 */
+@media (max-width: 700px) {
+  .navigation {
+    position: relative;
+    min-height: 72px;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    padding: 20px 24px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* 点击按钮后显示 */
+  nav.is-open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  /*普通两列内容变成一列*/
+  .two-columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /*经历区域变成一列*/
+  .experience-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .experience-content {
+    margin-left: 0;
+  }
+
+  /*手机端取消作品卡片的粘性堆叠 */
+  .project-card,
+  .project-card:nth-child(2),
+  .project-card:nth-child(3),
+  .project-card:nth-child(4),
+  .project-card:nth-child(5),
+  .project-card:nth-child(6) {
+    position: relative;
+    top: auto;
+    margin-bottom: 24px;
+  }
+
+  .project-stack {
+    padding-bottom: 20px;
+  }
+
+  .project-stack::after {
+    display: none;
+  }
+
+  /*项目图片和文字由左右排列变成上下排列*/
+  .project-card-body {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .project-thumbnail {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .project-information {
+    padding: 28px;
+  }
+
+  .project-information h3 {
+    font-size: 26px;
+  }
+
+  .project-summary {
+    white-space: normal;
+  }
+
+  .case-study-images {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .related-theory {
+    margin-top: 70px;
+  }
+
+  .theory-list {
+    padding-left: 20px;
+  }
+
+  .theory-list li {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .citation {
+    white-space: normal;
+  }
+
+  .technical-section {
+  margin-top: 80px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    min-height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .development-process {
+  margin-top: 80px;
+  }
+
+  .development-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .development-figure img {
+    height: auto;
+  }
+
+  .worldbuilding-section {
+  margin-top: 80px;
+  }
+
+  .worldbuilding-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .worldbuilding-introduction p {
+    font-size: 17px;
+  }
+
+  .worldbuilding-introduction,
+  .worldbuilding-gallery {
+    height: auto;
+    gap: 16px;
+  }
+
+  .worldbuilding-introduction img,
+  .worldbuilding-gallery img:last-child {
+    margin-top: 0;
+  }
+
+  .effects-section {
+    margin-top: 80px;
+  }
+
+  .effects-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .effects-figure img {
+    height: auto;
+  }
+
+  .interaction-section {
+    margin-top: 80px;
+  }
+
+  .interaction-list {
+    gap: 40px;
+  }
+
+  .interaction-header {
+    margin-bottom: 36px;
+  }
+
+  .interaction-item {
+    border-radius: 8px;
+  }
+
+  .interaction-item h3 {
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+
+  .iteration-notes {
+    margin-top: 60px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .iteration-note {
+    padding: 24px;
+  }
+
+  .iteration-note h3 {
+    font-size: 20px;
+  }
+
+  .bibliography-section {
+    margin-top: 80px;
+    padding-top: 50px;
+  }
+
+  .bibliography-section h2 {
+    margin-bottom: 30px;
+  }
+
+  .bibliography-list {
+    padding-left: 20px;
+  }
+
+  .bibliography-list li {
+    margin-bottom: 18px;
+    font-size: 15px;
+  }
+
+  .project-explanation-video > p {
+  white-space: normal;
+  }
+
+  .project-footer {
+  margin-top: 80px;
+  }
+
+  .project-footer-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project-two-page {
+  padding-top: 60px;
+  }
+
+  .project-two-summary {
+    font-size: 17px;
+  }
+
+  .project-two-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-two-gallery {
+    width: calc(100% - 24px);
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .project-two-image {
+    border-radius: 6px;
+  }
+
+  .project-three-gallery {
+    width: calc(100% - 24px);
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .project-three-image {
+    border-radius: 6px;
+  }
+
+  .project-three-page {
+    padding-top: 60px;
+  }
+
+  .project-three-summary {
+    font-size: 17px;
+  }
+
+  .project-three-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-four-page {
+    padding-top: 60px;
+  }
+
+  .project-four-summary {
+    font-size: 17px;
+  }
+
+  .project-four-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-four-gallery {
+    width: calc(100% - 24px);
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .project-four-image {
+    border-radius: 6px;
+  }
+
+  .project-five-page {
+    padding-top: 60px;
+  }
+
+  .project-five-summary {
+    font-size: 17px;
+  }
+
+  .project-five-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-five-gallery {
+    width: calc(100% - 24px);
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .project-five-image {
+    border-radius: 6px;
+  }
+
+  .project-six-page {
+    padding-top: 60px;
+  }
+
+  .project-six-summary {
+    font-size: 17px;
+  }
+
+  .project-six-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-six-gallery {
+    width: calc(100% - 24px);
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .project-six-image {
+    border-radius: 6px;
+  }
+
+  .early-works-grid {
+    margin-top: 38px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .early-works-intro {
+    font-size: 16px;
+  }
+
+  .early-work-image {
+    border-radius: 6px;
+  }
+
+  .early-work-info h3 {
+    font-size: 21px;
+  }
+
+  .sigur-main {
+    padding-top: 58px;
+  }
+
+  .sigur-hero-grid,
+  .sigur-character-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .sigur-copy h1 {
+    font-size: 42px;
+  }
+
+  .sigur-overview p,
+  .sigur-character-copy > p:last-child {
+    font-size: 16px;
+  }
+
+  .sigur-overview p {
+    white-space: normal;
+  }
+
+  .sigur-character-section {
+    margin-top: 76px;
+  }
+
+  .sigur-character-copy {
+    position: static;
+  }
+
+  .sigur-hero-image,
+  .sigur-character-image {
+    border-radius: 7px;
+  }
+
+  .insomnia-showcase-section {
+    margin-top: 68px;
+  }
+
+  .insomnia-project-image {
+    border-radius: 7px;
+  }
+
+  .military-page .sigur-copy h1 {
+    font-size: 38px;
+    white-space: normal;
+  }
+
+  .military-showcase-section {
+    margin-top: 68px;
+  }
+
+  .military-project-image {
+    border-radius: 7px;
+  }
+
+  .travel-showcase-section {
+    margin-top: 68px;
+  }
+
+  .travel-page .sigur-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .travel-page .sigur-copy h1 {
+    font-size: 42px;
+  }
+
+  .travel-gallery {
+    gap: 30px;
+  }
+
+  .travel-hero-image,
+  .travel-project-image {
+    border-radius: 7px;
+  }
+
+  .sleep-showcase-section {
+    margin-top: 68px;
+  }
+
+  .sleep-page .sigur-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .sleep-series-grid {
+    margin-top: 30px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sleep-featured-image,
+  .sleep-series-image {
+    border-radius: 7px;
+  }
+
+}

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Healing Fragments | Jinjing Zhou</title>
+    <meta
+      name="description"
+      content="Healing Fragments: a VR rehabilitation project by Jinjing Zhou."
+    >
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body class="project-page-dark">
+    <header class="project-detail-nav">
+      <div class="container">
+        <a class="back-link" href="index.html#projects">
+          ← Back to projects
+        </a>
+      </div>
+    </header>
+
+    <main class="project-detail">
+      <div class="container">
+
+        <header class="project-detail-header">
+          <p class="project-type">
+            VR Game · Embodied Interaction
+          </p>
+
+          <h1>Healing Fragments</h1>
+
+          <p class="project-summary">
+            A VR exploration game examining fracture recovery, embodied interaction, and emotional experience.
+          </p>
+        </header>
+
+        <video
+          class="project-detail-cover"
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="Healing Fragments project introduction video"
+        >
+          <source
+            src="image/project1/project-01_introduction-web.mp4"
+            type="video/mp4"
+          >
+          Your browser does not support HTML video.
+        </video>
+
+        <section class="project-detail-content">
+          <h2>Project Overview</h2>
+
+          <p>
+            Healing Fragments is a VR rehabilitation experience that integrates physiotherapy movements into symbolic interactions, transforming therapeutic exercises into emotionally meaningful actions. Rooted in traditional Chinese aesthetics, the project creates a calm and supportive immersive environment that offers users emotional comfort through its visual and atmospheric design. Each gesture triggers symbolic feedback—such as an embrace, petals, lantern light, or flowing water—reinforcing the connection between body and emotion, and allowing the rehabilitation process to become both physically engaging and emotionally resonant.
+          </p>
+
+          <h2>Research Question</h2>
+
+          <p>
+            How can VR support both physical rehabilitation and emotional healing during fracture recovery?
+          </p>
+        </section>
+
+        <section class="case-studies">
+          <h2>Case Studies</h2>
+
+          <div class="case-study-images">
+            <figure>
+              <img
+                src="image/project1/case-impact-vr.png"
+                alt="Impact VR rehabilitation case study"
+              >
+
+              <figcaption>
+                Figure 1. VR-Archery rehabilitation task. Reproduced from Ong, Teo &amp; Qamar (2021). © Springer Nature.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="image/project1/case-yougrabber.png"
+                alt="YouGrabber rehabilitation case study"
+              >
+              <figcaption>
+                Figure 2. YouGrabber Uses Virtual Reality Games for Upper Limb Rehabilitation. Reproduced from Fitness Gaming (2015). © Fitness Gaming.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="related-theory">
+          <h2>Related Background and Theory</h2>
+
+          <ul class="theory-list">
+            <li>
+              Fracture rehabilitation often involves psychological distress, including anxiety, fatigue, and emotional disconnection.
+              <span class="citation">(Brinkman et al., 2024)</span>
+            </li>
+
+            <li>
+              Repetitive exercises reduce motivation when there is no emotional feedback or sense of progress.
+              <span class="citation">(Jack et al., 2010)</span>
+            </li>
+
+            <li>
+              VR can reduce anxiety and increase engagement through immersion and presence.
+              <span class="citation">(Rizzo &amp; Koenig, 2017)</span>
+            </li>
+
+            <li>
+              Immersive visuals enhance emotional involvement and make training feel less repetitive.
+              <span class="citation">(Tunc et al., 2024)</span>
+            </li>
+
+            <li>
+              VR relaxation is effective in clinical rehabilitation contexts, helping users feel calmer and more supported.
+              <span class="citation">(Edwards et al., 2025)</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="technical-section">
+  <div class="technical-heading">
+    <h2>Development Tools</h2>
+    <p>
+      The project was developed using a combination of real-time
+      development, 3D modelling, visual design, and VR technologies.
+    </p>
+  </div>
+
+  <div class="tool-grid">
+    <article class="tool-card">
+      <img src="image/project1/photoshop-logo.png" alt="Adobe Photoshop">
+      <div>
+        <h3>Photoshop</h3>
+        <p>Texture and image editing</p>
+      </div>
+    </article>
+
+    <article class="tool-card">
+      <img src="image/project1/blender-logo.png" alt="Blender">
+      <div>
+        <h3>Blender</h3>
+        <p>Scene modelling and asset creation</p>
+      </div>
+    </article>
+
+    <article class="tool-card">
+      <img src="image/project1/unity-logo.png" alt="Unity">
+      <div>
+        <h3>Unity</h3>
+        <p>URP, XR Interaction Toolkit, VFX Graph and Particle System</p>
+      </div>
+    </article>
+
+    <article class="tool-card">
+      <img src="image/project1/vscode-logo.png" alt="Visual Studio Code">
+      <div>
+        <h3>Visual Studio Code</h3>
+        <p>C# scripting and interaction development</p>
+      </div>
+    </article>
+
+    <article class="tool-card">
+      <img src="image/project1/pico4.png" alt="Pico 4">
+      <div>
+        <h3>Pico 4</h3>
+        <p>Standalone VR development and testing</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="development-process">
+  <header class="development-header">
+    <h2>Create an XR Scene</h2>
+  </header>
+
+  <div class="development-grid">
+    <!-- 左侧：Unity配置过程 -->
+    <figure class="development-figure">
+      <img
+        src="image/project1/xr-scene-setup.png"
+        alt="Creating and configuring an XR scene in Unity"
+      >
+
+      <figcaption>
+        XR Interaction Toolkit installation and XR Origin setup.
+      </figcaption>
+    </figure>
+
+    <!-- 右侧：运行及测试 -->
+    <figure class="development-figure">
+      <img
+        src="image/project1/xr-scene-testing.png"
+        alt="Testing the XR scene with Pico 4"
+      >
+
+      <figcaption>
+        Controller interaction and headset testing with Pico 4.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="worldbuilding-section">
+  <header class="worldbuilding-header">
+    <p class="section-label">Development Process</p>
+
+    <h2>
+      Worldbuilding, Modeling &amp; Visual Design
+    </h2>
+  </header>
+
+  <div class="worldbuilding-grid">
+    <!-- 左侧 -->
+    <div class="worldbuilding-introduction">
+      <p>
+        <em>Healing Fragments</em> constructs an emotional healing world
+        situated between reality and dream, using Chinese aesthetics and
+        symbolic visuals to transform rehabilitation movements into a poetic
+        and tranquil journey.
+      </p>
+
+      <img
+        src="image/project1/worldbuilding-models.png"
+        alt="Models and visual assets created for Healing Fragments"
+      >
+    </div>
+
+    <!-- 右侧 -->
+    <div class="worldbuilding-gallery">
+      <img
+        src="image/project1/worldbuilding-scene-01.png"
+        alt="Flower landscape created in Unity"
+      >
+
+      <img
+        src="image/project1/worldbuilding-scene-02.png"
+        alt="Healing Fragments environment created in Unity"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="effects-section">
+  <header class="effects-header">
+    <p class="section-label">Development Process</p>
+
+    <h2>
+      Unity Materials, Animation Effects &amp; Particle Systems
+    </h2>
+  </header>
+
+  <div class="effects-grid">
+    <figure class="effects-figure effects-material">
+      <img
+        src="image/project1/unity-materials.png"
+        alt="Materials created for Healing Fragments in Unity"
+      >
+
+      <figcaption>
+        Materials and textures created in Unity.
+      </figcaption>
+    </figure>
+
+    <figure class="effects-figure effects-gallery">
+      <img
+        src="image/project1/animation-particle-effects.png"
+        alt="Animation and particle effects in Healing Fragments"
+      >
+
+      <figcaption>
+        Animation, visual feedback and particle-system experiments.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section
+  class="interaction-section"
+  aria-label="Interaction design iterations"
+>
+  <header class="interaction-header">
+    <h2>Development Process</h2>
+  </header>
+
+  <div class="interaction-list">
+    <figure class="interaction-item">
+      <h3>Iteration 1: Particle-avatar distance interaction</h3>
+
+      <img
+        src="image/project1/interaction-particle-avatar.png"
+        alt="Particle-avatar distance interaction"
+        loading="lazy"
+      >
+    </figure>
+
+    <figure class="interaction-item">
+      <h3>Iteration 1: Water-pouring interaction</h3>
+
+      <img
+        src="image/project1/interaction-water-pouring.png"
+        alt="Water-pouring interaction"
+        loading="lazy"
+      >
+    </figure>
+
+    <figure class="interaction-item">
+      <h3>Iteration 1: Flower-scattering interaction</h3>
+
+      <img
+        src="image/project1/interaction-flower-scattering.png"
+        alt="Flower-scattering interaction"
+        loading="lazy"
+      >
+    </figure>
+
+    <figure class="interaction-item">
+      <h3>Iteration 1: Lantern-lighting interaction</h3>
+
+      <img
+        src="image/project1/interaction-lantern-lighting.png"
+        alt="Lantern-lighting interaction"
+        loading="lazy"
+      >
+    </figure>
+  </div>
+
+  <div class="iteration-notes">
+    <article class="iteration-note">
+      <h3>Iteration 2: Improving Feedback &amp; Responsiveness</h3>
+
+      <ul>
+        <li>
+          Added clearer gesture feedback: pick flower → throw forward;
+          raise arm → light lantern; rotate wrist → pour water.
+        </li>
+        <li>
+          Visual cues strengthened through flower particles, lantern flame,
+          and water flow.
+        </li>
+        <li>
+          Trigger-based interactions introduced to increase clarity.
+        </li>
+      </ul>
+    </article>
+
+    <article class="iteration-note">
+      <h3>Final Iteration: Symbolism, Intelligibility &amp; Emotional Tone</h3>
+
+      <ul>
+        <li>
+          Added subtle sound cues, including flame and ocean waves, for
+          emotional clarity.
+        </li>
+        <li>
+          Adjusted gesture thresholds for easier, more inclusive triggering.
+        </li>
+        <li>
+          Tuned visual and audio feedback to support a calm therapeutic
+          rhythm.
+        </li>
+        <li>
+          Result: interactions became more reliable, gentle, and emotionally
+          resonant.
+        </li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="bibliography-section">
+  <h2>Bibliography</h2>
+
+  <ul class="bibliography-list">
+    <li>
+      Brinkman, N. et al. (2024) ‘Recovery of comfort and capability after
+      upper extremity fracture is predominantly associated with mindset’,
+      <cite>Journal of Orthopaedic Trauma</cite>, 38(10), pp. 557–565.
+    </li>
+
+    <li>
+      Jack, K., McLean, S.M., Moffett, J.K. and Gardiner, E. (2010) ‘Barriers
+      to treatment adherence in physiotherapy outpatient clinics: a
+      systematic review’, <cite>Manual Therapy</cite>, 15(3), pp. 220–228.
+    </li>
+
+    <li>
+      Rizzo, A. and Koenig, S.T. (2017) ‘Is clinical virtual reality ready for
+      primetime?’, <cite>Neuropsychology</cite>, 31(8), pp. 877–899.
+    </li>
+
+    <li>
+      Tunc, H., Uygur, F. and Yalcin, A. (2024) ‘The effect of virtual reality
+      applications on treatment outcomes in lower-extremity rehabilitation:
+      a systematic review’, <cite>Advances in Rehabilitation</cite>, 38(1),
+      pp. 20–28.
+    </li>
+
+    <li>
+      Edwards, S., Taylor, P., Patel, R. and Singh, J. (2025) ‘A feasibility
+      study of the use of virtual reality relaxation in an NHS inpatient
+      neurorehabilitation unit’, <cite>Frontiers in Virtual Reality</cite>, 6,
+      p. 1504894.
+    </li>
+
+    <li>
+      Li, A., Montaño, Z., Chen, V.J. and Gold, J.I. (2011) ‘Virtual reality
+      and pain management: current trends and future directions’,
+      <cite>Pain Management</cite>, 1(2), pp. 147–157.
+    </li>
+
+    <li>
+      Sheffield Hallam University (2024)
+      <cite>Impact VR: Physical Rehabilitation</cite>. [Online] Available at:
+      <a
+        href="https://www.shu.ac.uk/centre-culture-media-society/impact-vr/vr-physical-rehabilitation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://www.shu.ac.uk/centre-culture-media-society/impact-vr/vr-physical-rehabilitation
+      </a>
+      [Accessed 27 October 2025].
+    </li>
+
+    <li>
+      Fitness Gaming (2015)
+      <cite>YouGrabber uses virtual reality games for upper-limb rehabilitation</cite>.
+      [Online] Available at:
+      <a
+        href="https://mail.fitnessgaming.com/news/health-and-rehab/yougrabber-uses-virtual-reality-games-for-upper-limb-rehabilitation.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://mail.fitnessgaming.com/news/health-and-rehab/yougrabber-uses-virtual-reality-games-for-upper-limb-rehabilitation.html
+      </a>
+      [Accessed 27 October 2025].
+    </li>
+  </ul>
+</section>
+
+<section class="project-explanation-video">
+  <h2>Project Walkthrough &amp; Design Rationale</h2>
+
+  <p>
+    A video walkthrough explaining the concept, interaction design,
+    development process, and intended emotional experience of
+    <em>Healing Fragments</em>.
+  </p>
+
+  <div class="youtube-video">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/4eIwshoPR0g?start=1"
+      title="Healing Fragments project walkthrough and design rationale"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+        
+      </div>
+    </main>
+
+    <footer class="project-footer">
+        <div class="container project-footer-content">
+            <p>© 2026 Jinjing Zhou</p>
+
+            <div class="project-footer-links">
+            <a href="#">Back to Top ↑</a>
+            <a href="mailto:zhoujinjing2023@163.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+</html>
