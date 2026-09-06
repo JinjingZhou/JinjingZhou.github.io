@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Dialogue with Leaves — a physical computing installation by Jinjing Zhou exploring human-plant perception through bioelectrical signals, pulse data, sound, and light."
+    >
+    <meta name="theme-color" content="#13251d">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dialogue with Leaves | Jinjing Zhou">
+    <meta
+      property="og:description"
+      content="An exploratory physical computing installation translating plant electrical activity and human pulse data into sound and light."
+    >
+    <meta property="og:url" content="https://jinjingzhou.github.io/project-12.html">
+    <meta
+      property="og:image"
+      content="https://jinjingzhou.github.io/image/dialogue-with-leaves/dialogue-cover.jpg"
+    >
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Dialogue with Leaves | Jinjing Zhou</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body id="top" class="dialogue-page">
+    <header class="project-detail-nav">
+      <div class="container">
+        <a class="back-link" href="index.html#projects">
+          ← Back to Current Research
+        </a>
+      </div>
+    </header>
+
+    <main class="dialogue-main">
+      <section class="dialogue-hero">
+        <div class="container dialogue-hero-layout">
+          <div class="dialogue-hero-copy">
+            <p class="dialogue-kicker">Physical Computing · Multisensory Interaction</p>
+            <h1>
+              <span class="dialogue-title-line">Dialogue</span>
+              <span class="dialogue-title-line">
+                <span class="with-word">with</span>
+                <span class="leaves-word">Leaves</span>
+              </span>
+            </h1>
+
+            <div class="dialogue-meta" aria-label="Project information">
+              <span>2024</span>
+              <span>Exploratory Prototype</span>
+              <span>Individual Project</span>
+            </div>
+
+            <p class="dialogue-lede">
+              An interactive installation translating plant electrical activity
+              and human heart-rate signals into sound and light. The project asks
+              how biological data might become a shared, sensory language between
+              people and plants.
+            </p>
+
+            <div class="dialogue-actions">
+              <a class="dialogue-primary-action" href="#project-video">
+                Watch Project Video
+              </a>
+              <a class="dialogue-text-action" href="#interaction-system">
+                Explore the System ↓
+              </a>
+            </div>
+          </div>
+
+          <figure class="dialogue-cover">
+            <img
+              src="image/dialogue-with-leaves/dialogue-cover.jpg"
+              alt="Dialogue with Leaves installation with plants, glass vessels, lights, a telephone receiver, and a laptop"
+            >
+            <figcaption>
+              Final installation combining living material, electronics, light,
+              sound, and a tactile listening interface.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-overview">
+        <div class="container dialogue-split-layout">
+          <div class="dialogue-section-heading">
+            <p class="dialogue-kicker">01 · Concept</p>
+            <h2>A conversation beyond words</h2>
+          </div>
+
+          <div class="dialogue-section-copy">
+            <p>
+              Dialogue with Leaves treats sensing technology as a mediator rather
+              than a measuring instrument. Electrodes, pulse sensing, illumination,
+              and sound make normally invisible biological fluctuations perceptible
+              without claiming to translate them into a literal plant language.
+            </p>
+            <p>
+              The sculptural form brings domestic and organic materials together:
+              plant cuttings sit in glass vessels attached to a found branch, while
+              a telephone receiver invites close listening. The familiar act of
+              making a call becomes an intimate encounter with a living system.
+            </p>
+
+            <blockquote>
+              How might bodily and plant signals create a moment of attention,
+              curiosity, and perceived relation between different living beings?
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="dialogue-section" id="interaction-system">
+        <div class="container">
+          <div class="dialogue-wide-heading">
+            <p class="dialogue-kicker">02 · Interaction</p>
+            <h2>From biological signal to sensory response</h2>
+            <p>
+              Two forms of input are brought into one responsive environment. The
+              installation does not present the data as a medical diagnosis; it
+              uses changing values as material for an audiovisual experience.
+            </p>
+          </div>
+
+          <ol class="dialogue-flow">
+            <li class="dialogue-flow-sense">
+              <div class="dialogue-flow-media" aria-hidden="true">
+                <img
+                  src="image/dialogue-with-leaves/dialogue-flow-sense.jpg"
+                  alt=""
+                  loading="lazy"
+                >
+              </div>
+              <span>01</span>
+              <h3>Sense</h3>
+              <p>
+                Electrodes connect with the leaves while a pulse sensor captures
+                the participant’s heart-rate signal.
+              </p>
+            </li>
+            <li class="dialogue-flow-translate">
+              <div class="dialogue-flow-media" aria-hidden="true">
+                <video autoplay muted loop playsinline preload="metadata">
+                  <source
+                    src="image/dialogue-with-leaves/dialogue-flow-translate.mp4"
+                    type="video/mp4"
+                  >
+                </video>
+              </div>
+              <span>02</span>
+              <h3>Translate</h3>
+              <p>
+                Arduino receives and organises the changing sensor values before
+                sending them to the computer.
+              </p>
+            </li>
+            <li class="dialogue-flow-map">
+              <div class="dialogue-flow-media" aria-hidden="true">
+                <img
+                  src="image/dialogue-with-leaves/dialogue-flow-map.png"
+                  alt=""
+                  loading="lazy"
+                >
+              </div>
+              <span>03</span>
+              <h3>Map</h3>
+              <p>
+                Max/MSP monitors and maps the incoming data into parameters for
+                sound and responsive illumination.
+              </p>
+            </li>
+            <li class="dialogue-flow-encounter">
+              <div class="dialogue-flow-media" aria-hidden="true">
+                <video autoplay muted loop playsinline preload="metadata">
+                  <source
+                    src="image/dialogue-with-leaves/dialogue-flow-encounter.mp4"
+                    type="video/mp4"
+                  >
+                </video>
+              </div>
+              <span>04</span>
+              <h3>Encounter</h3>
+              <p>
+                The participant listens through the telephone receiver and observes
+                light travelling through the installation.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-detail-section">
+        <div class="container dialogue-detail-grid">
+          <figure class="dialogue-image-card dialogue-image-card-wide">
+            <img
+              src="image/dialogue-with-leaves/dialogue-installation-overview.jpg"
+              alt="Complete Dialogue with Leaves installation with plants, illuminated glass vessels, a telephone receiver, sensors, and a laptop"
+              loading="lazy"
+            >
+            <figcaption>
+              The complete installation brings plants, sensing hardware, light,
+              sound, and the listening interface into one responsive environment.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-materials-section">
+        <div class="container">
+          <div class="dialogue-wide-heading">
+            <p class="dialogue-kicker">03 · Materials &amp; Technology</p>
+            <h2>Organic matter meets physical computing</h2>
+          </div>
+
+          <div class="dialogue-materials-layout">
+            <figure class="dialogue-image-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-materials.jpg"
+                alt="Branch, wire, tools, glass vessels, telephone receiver, and fabrication materials"
+                loading="lazy"
+              >
+              <figcaption>
+                Materials and tools shown in reading order, from upper left to lower right.
+              </figcaption>
+            </figure>
+
+            <div class="dialogue-tool-list">
+              <div>
+                <span>01 · Structural Base</span>
+                <p>
+                  Found branch — provides the primary sculptural base for the
+                  installation.
+                </p>
+              </div>
+              <div>
+                <span>02 · Shaping Tools</span>
+                <p>
+                  Steel wire · pliers · awl — shape, pierce, and secure the
+                  supporting framework.
+                </p>
+              </div>
+              <div>
+                <span>03 · Vessels &amp; Binding</span>
+                <p>
+                  Glass vessels · cork stoppers · jute twine — hold the plant
+                  cuttings and bind the vessels to the branch.
+                </p>
+              </div>
+              <div>
+                <span>04 · Listening &amp; Assembly</span>
+                <p>
+                  Telephone receiver · round-wire nails · epoxy adhesive · hammer
+                  · electrode pads — form and secure the listening and contact
+                  elements.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dialogue-components-layout">
+            <div class="dialogue-components-copy">
+              <p class="dialogue-kicker">Electronic Components</p>
+              <h3>Sensing and control hardware</h3>
+              <p class="dialogue-components-intro">
+                Three core components capture biological changes, organise the
+                incoming values, and pass them to the audiovisual system.
+              </p>
+
+              <div class="dialogue-component-list">
+                <article>
+                  <span>01</span>
+                  <div>
+                    <h4>Arduino Uno</h4>
+                    <p>
+                      Receives readings from both sensors and sends the organised
+                      values to Max/MSP through serial communication.
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span>02</span>
+                  <div>
+                    <h4>AD8232 &amp; electrodes</h4>
+                    <p>
+                      Capture small fluctuations in the plant's electrical
+                      activity through electrodes attached to its leaves.
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span>03</span>
+                  <div>
+                    <h4>MAX30101 pulse sensor</h4>
+                    <p>
+                      Uses optical sensing to measure the participant's pulse as
+                      a second stream of real-time biological data.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <figure class="dialogue-image-card dialogue-components-figure">
+              <img
+                src="image/dialogue-with-leaves/dialogue-electronic-components.jpg"
+                alt="Arduino Uno, AD8232 module with electrodes, and MAX30101 pulse sensor"
+                loading="lazy"
+              >
+              <figcaption>
+                Core electronic components used for sensing and serial communication.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="dialogue-technical-grid">
+            <figure class="dialogue-image-card dialogue-circuit-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-circuit-diagram-annotated.png"
+                alt="Annotated circuit diagram connecting Arduino Uno, AD8232, MAX30101, LED strip, telephone receiver, Arduino IDE, and Max MSP"
+                loading="lazy"
+              >
+              <figcaption>
+                Annotated connection diagram showing the physical circuit and the
+                Arduino IDE–Max/MSP software layer.
+              </figcaption>
+            </figure>
+
+            <div class="dialogue-wiring-guide">
+              <div class="dialogue-wiring-heading">
+                <p class="dialogue-kicker">Wiring Logic</p>
+                <h3>How signals move through the system</h3>
+                <p>
+                  Arduino Uno acts as the central bridge. The electronic modules
+                  share a common ground, allowing the two sensor streams to be
+                  read together before they are mapped into light and sound.
+                </p>
+              </div>
+
+              <ol class="dialogue-wiring-steps">
+                <li>
+                  <span>01</span>
+                  <h4>Plant signal</h4>
+                  <p>
+                    The AD8232 is powered from the Arduino and sends its conditioned
+                    analogue output to an analogue input. Electrodes attached to
+                    the leaves provide the changing source signal.
+                  </p>
+                </li>
+                <li>
+                  <span>02</span>
+                  <h4>Pulse signal</h4>
+                  <p>
+                    The MAX30101 connects through 3.3 V, ground, SDA, and SCL. Its
+                    I²C connection supplies optical pulse values from the
+                    participant.
+                  </p>
+                </li>
+                <li>
+                  <span>03</span>
+                  <h4>Serial and software bridge</h4>
+                  <p>
+                    Firmware created in the Arduino IDE reads both inputs and sends
+                    the combined values to the computer via USB serial. Max/MSP
+                    parses and maps the incoming data.
+                  </p>
+                </li>
+                <li>
+                  <span>04</span>
+                  <h4>Light and sound output</h4>
+                  <p>
+                    A digital data line controls the addressable LED strip. Max/MSP
+                    generates the sound response, while the LM386 breadboard circuit
+                    supports playback through the telephone receiver.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-process-section">
+        <div class="container">
+          <div class="dialogue-wide-heading">
+            <p class="dialogue-kicker">04 · Making Process</p>
+            <h2>Building and testing the prototype</h2>
+            <p>
+              The project developed through parallel experiments in sculptural
+              construction, signal sensing, serial communication, and audiovisual
+              mapping.
+            </p>
+          </div>
+
+          <div class="dialogue-process-grid">
+            <figure class="dialogue-image-card dialogue-process-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-structure-process.jpg"
+                alt="Early wire structure attached to a found branch"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>01 · Framework study</span>
+                <p>
+                  Steel wire was bent around the found branch to test the height,
+                  balance, and possible positions of the suspended vessels.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="dialogue-image-card dialogue-process-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-vessel-assembly.jpg"
+                alt="Glass vessels suspended within the wire framework"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>02 · Vessel assembly</span>
+                <p>
+                  Glass vessels were wrapped and suspended within the wire
+                  framework, allowing the composition to be adjusted before living
+                  material and electronics were added.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="dialogue-image-card dialogue-process-card dialogue-process-card-wide">
+              <img
+                src="image/dialogue-with-leaves/dialogue-living-arrangement.jpg"
+                alt="Wire and glass-vessel prototype arranged with plant cuttings"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>03 · Living arrangement</span>
+                <p>
+                  Plant cuttings were introduced to test spacing, weight
+                  distribution, and how organic forms changed the sculpture's
+                  silhouette.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="dialogue-image-card dialogue-process-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-ad8232-soldering.jpg"
+                alt="Header pins being soldered onto the AD8232 sensor module"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>04 · Sensor preparation</span>
+                <p>
+                  Header pins were soldered onto the AD8232 module to create
+                  reliable power, ground, and analogue-signal connections.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="dialogue-image-card dialogue-process-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-pulse-test.jpg"
+                alt="MAX30101 pulse sensor being tested with Arduino serial readings"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>05 · Pulse-input test</span>
+                <p>
+                  The MAX30101 was connected to Arduino and checked through live
+                  serial readings before being integrated into the installation.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="dialogue-image-card dialogue-process-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-plant-sensing.jpg"
+                alt="Arduino and electrode sensing test with leaves"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>06 · Plant-signal test</span>
+                <p>
+                  Electrodes were attached to leaves while Arduino monitored
+                  changing values and the stability of the input.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="dialogue-image-card dialogue-process-card">
+              <img
+                src="image/dialogue-with-leaves/dialogue-maxmsp-prototype.jpg"
+                alt="Arduino sensor prototype connected to a Max MSP patch on a laptop"
+                loading="lazy"
+              >
+              <figcaption>
+                <span>07 · Audiovisual mapping</span>
+                <p>
+                  Incoming serial values were parsed in Max/MSP and mapped to
+                  variations in sound and responsive illumination.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-video-section" id="project-video">
+        <div class="container">
+          <div class="dialogue-video-heading">
+            <div>
+              <p class="dialogue-kicker">05 · Project Film</p>
+              <h2>Watch Dialogue with Leaves</h2>
+            </div>
+            <p>
+              A short walkthrough of the installation, its materials, and the
+              interaction between plant sensing, human pulse, sound, and light.
+            </p>
+          </div>
+
+          <div class="dialogue-video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/4id5OzdppPI"
+              title="Dialogue with Leaves project introduction video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-reflection-section">
+        <div class="container dialogue-split-layout">
+          <div class="dialogue-section-heading">
+            <p class="dialogue-kicker">06 · Reflection</p>
+            <h2>Listening as a design method</h2>
+          </div>
+
+          <div class="dialogue-section-copy">
+            <p>
+              This exploratory prototype shifted my attention from representing
+              biological data accurately to designing the conditions for careful
+              listening. Its exposed connections and fragile materials make the
+              system’s mediation visible rather than presenting technology as an
+              invisible or neutral translator.
+            </p>
+            <p>
+              Future development could compare different mappings of plant and
+              participant signals, document longer interactions, and examine how
+              participants interpret agency, responsiveness, and connection within
+              the installation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dialogue-section dialogue-reference-section" aria-labelledby="dialogue-reference-title">
+        <div class="container dialogue-split-layout">
+          <div class="dialogue-section-heading">
+            <p class="dialogue-kicker">07 · Reference</p>
+            <h2 id="dialogue-reference-title">Research reference</h2>
+          </div>
+
+          <div class="dialogue-reference-copy">
+            <p>
+              This paper provided a conceptual reference for considering the plant
+              as a responsive signalling organism. In this artwork, that perspective
+              is used as a point of departure for sensory exploration rather than as
+              evidence of direct plant-human communication.
+            </p>
+
+            <ol class="dialogue-reference-list">
+              <li>
+                Brenner, E. D., Stahlberg, R., Mancuso, S., Vivanco, J., Baluška,
+                F., &amp; Van Volkenburgh, E. (2006). Plant neurobiology: An
+                integrated view of plant signaling. <cite>Trends in Plant
+                Science, 11</cite>(8), 413–419.
+                <a
+                  href="https://doi.org/10.1016/j.tplants.2006.06.009"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >https://doi.org/10.1016/j.tplants.2006.06.009</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="project-footer dialogue-footer">
+      <div class="container project-footer-content">
+        <p>© 2026 Jinjing Zhou</p>
+
+        <div class="project-footer-links">
+          <a href="index.html#projects">Current Research</a>
+          <a href="#top">Back to Top ↑</a>
+          <a href="mailto:zhoujinjing2023@163.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
