@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Aesthetics of Failure — a gesture-driven TouchDesigner experiment by Jinjing Zhou that transforms recognition errors into an expressive visual language."
+    >
+    <meta name="theme-color" content="#090b0a">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aesthetics of Failure | Jinjing Zhou">
+    <meta
+      property="og:description"
+      content="A gesture-driven visual experiment that reinterprets recognition errors, pixel distortion, image displacement, and repetition as an artistic aesthetic."
+    >
+    <meta property="og:url" content="https://jinjingzhou.github.io/project-13.html">
+    <meta
+      property="og:image"
+      content="https://jinjingzhou.github.io/image/aesthetics-of-failure/aof-hero.jpg"
+    >
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Aesthetics of Failure | Jinjing Zhou</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body id="top" class="failure-page">
+    <header class="project-detail-nav">
+      <div class="container">
+        <a class="back-link" href="index.html#projects">
+          ← Back to Current Research
+        </a>
+      </div>
+    </header>
+
+    <main class="failure-main">
+      <section class="failure-hero">
+        <div class="container failure-hero-grid">
+          <div class="failure-hero-copy">
+            <p class="failure-kicker">Gesture Interaction · TouchDesigner</p>
+            <h1>
+              <span>Aesthetics</span>
+              <span class="failure-title-accent">of Failure</span>
+            </h1>
+
+            <div class="failure-meta" aria-label="Project information">
+              <span>2025</span>
+              <span>Interactive Media Experiment</span>
+              <span>Individual Project</span>
+            </div>
+
+            <p class="failure-lede">
+              A gesture-driven visual experiment exploring how recognition
+              errors in human-computer interaction can become an expressive
+              visual language.
+            </p>
+
+            <div class="failure-actions">
+              <a class="failure-primary-action" href="#project-video">Watch Project Films</a>
+              <a class="failure-text-action" href="#interaction-system">
+                Explore the System ↓
+              </a>
+            </div>
+          </div>
+
+          <figure class="failure-hero-figure">
+            <img
+              src="image/aesthetics-of-failure/aof-hero.jpg"
+              alt="A TouchDesigner output composed of fragmented monochrome textures, noise, edges, and displaced image tiles"
+            >
+            <figcaption>
+              A dense visual state produced as unstable image processes accumulate.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="failure-section">
+        <div class="container failure-split">
+          <div class="failure-section-heading">
+            <p class="failure-kicker">01 · Premise</p>
+            <h2>When the system refuses precision</h2>
+          </div>
+
+          <div class="failure-section-copy">
+            <p>
+              Gesture interfaces are often designed around accurate recognition,
+              immediate response, and predictable control. This project begins at
+              the point where those expectations break down.
+            </p>
+            <p>
+              When the system misinterprets hand gestures, its response appears
+              as pixel distortion, image displacement, and repetitive overlays.
+              Instead of correcting or concealing these outputs, the experiment
+              keeps them visible as aesthetic material arising from uncertainty
+              within the technical process.
+            </p>
+
+            <blockquote>
+              Failure is not removed from the interaction. It becomes the interaction.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="failure-section failure-position-section">
+        <div class="container">
+          <div class="failure-wide-heading">
+            <p class="failure-kicker">02 · Research Question</p>
+            <h2>Can recognition error become a visual language?</h2>
+            <p>
+              The project shifts attention from whether a gesture interface works
+              correctly to how its moments of misrecognition might be experienced,
+              interpreted, and deliberately composed.
+            </p>
+          </div>
+
+          <div class="failure-position-map">
+            <article class="failure-position-row">
+              <div class="failure-position-from">
+                <span>Conventional Aim · 01</span>
+                <h3>Precision</h3>
+                <p>Recognition should be accurate, stable, and repeatable.</p>
+              </div>
+
+              <div class="failure-position-shift" aria-hidden="true">
+                <span>Reframed as</span>
+                <strong>→</strong>
+              </div>
+
+              <div class="failure-position-to">
+                <span>Project Position · 01</span>
+                <h3>Uncertainty</h3>
+                <p>Instability is retained as an expressive condition.</p>
+              </div>
+            </article>
+
+            <article class="failure-position-row">
+              <div class="failure-position-from">
+                <span>Conventional Aim · 02</span>
+                <h3>Correct Feedback</h3>
+                <p>The system should confirm the participant’s intended action.</p>
+              </div>
+
+              <div class="failure-position-shift" aria-hidden="true">
+                <span>Reframed as</span>
+                <strong>→</strong>
+              </div>
+
+              <div class="failure-position-to">
+                <span>Project Position · 02</span>
+                <h3>Beautiful Failure</h3>
+                <p>Misinterpretation produces distortion, displacement, and repetition.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="failure-critical-note">
+            By treating the “wrong” output as meaningful, the work questions the
+            implicit reliance on precision and total control in digital interaction.
+          </p>
+        </div>
+      </section>
+
+      <section id="interaction-system" class="failure-section">
+        <div class="container">
+          <div class="failure-wide-heading">
+            <p class="failure-kicker">03 · Interaction Logic</p>
+            <h2>From gesture to unstable image</h2>
+            <p>
+              The system moves through four linked stages, from tracking a moving
+              hand to reframing the resulting visual interruption.
+            </p>
+          </div>
+
+          <ol class="failure-flow">
+            <li>
+              <span>01</span>
+              <h3>Sense</h3>
+              <p>
+                A webcam captures the moving hand and supplies the live image used
+                for landmark tracking.
+              </p>
+            </li>
+            <li>
+              <span>02</span>
+              <h3>Interpret</h3>
+              <p>
+                MediaPipe reads hand landmarks and converts changing positions and
+                distances into control values.
+              </p>
+            </li>
+            <li>
+              <span>03</span>
+              <h3>Misinterpret</h3>
+              <p>
+                Variations in recognition and mapping trigger pixel distortion,
+                image displacement, noise, and repetitive overlays.
+              </p>
+            </li>
+            <li>
+              <span>04</span>
+              <h3>Reframe</h3>
+              <p>
+                Outputs multiply, disappear, repeat, and shift position, turning
+                a technical error into an expressive visual event.
+              </p>
+            </li>
+          </ol>
+
+          <figure class="failure-system-figure">
+            <img
+              src="image/aesthetics-of-failure/aof-system.jpg"
+              alt="TouchDesigner interface showing hand landmark tracking on the left and fragmented visual output on the right"
+            >
+            <figcaption>
+              The tracked hand is visible on the left; the evolving visual output
+              is assembled in the container on the right.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="failure-section">
+        <div class="container">
+          <div class="failure-wide-heading">
+            <p class="failure-kicker">04 · Visual Vocabulary</p>
+            <h2>Twenty states of disruption</h2>
+            <p>
+              Rather than illustrating a single successful gesture, the output
+              records a sequence of unstable visual conditions.
+            </p>
+          </div>
+
+          <div class="failure-vocabulary-grid">
+            <figure class="failure-visual-card">
+              <img
+                src="image/aesthetics-of-failure/aof-state-surface.jpg"
+                alt="A soft grey cellular texture generated in TouchDesigner"
+              >
+              <figcaption>
+                <span>01 · Surface Drift</span>
+                <p>Soft cellular fields blur recognition into an unstable relief.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="failure-visual-card">
+              <img
+                src="image/aesthetics-of-failure/aof-state-noise.jpg"
+                alt="A grid of noise, blank space, edge contours, and pixel textures"
+              >
+              <figcaption>
+                <span>02 · Signal Noise</span>
+                <p>Static and blank regions interrupt the expectation of continuous feedback.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="failure-visual-card">
+              <img
+                src="image/aesthetics-of-failure/aof-state-fragment.jpg"
+                alt="Displaced monochrome image fragments arranged in an irregular grid"
+              >
+              <figcaption>
+                <span>03 · Fragmented Edges</span>
+                <p>Contours repeat, collide, and slide out of alignment.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="failure-visual-card">
+              <img
+                src="image/aesthetics-of-failure/aof-state-overload.jpg"
+                alt="A dense mosaic of repeated black and white processed image tiles"
+              >
+              <figcaption>
+                <span>04 · Accumulated Failure</span>
+                <p>Multiple transformations compete and continually reorganise the frame.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="failure-section">
+        <div class="container failure-method-grid">
+          <div class="failure-section-heading">
+            <p class="failure-kicker">05 · Technical Approach</p>
+            <h2>A deliberately unstable instrument</h2>
+          </div>
+
+          <div>
+            <p class="failure-method-intro">
+              The prototype combines browser-camera input, hand-landmark tracking,
+              and real-time image processing. The technical system is used as a
+              research instrument: its uncertainty is exposed and shaped instead
+              of hidden behind seamless interaction.
+            </p>
+
+            <dl class="failure-method-list">
+              <div>
+                <dt>Input</dt>
+                <dd>Webcam-based hand movement</dd>
+              </div>
+              <div>
+                <dt>Tracking</dt>
+                <dd>MediaPipe hand landmarks</dd>
+              </div>
+              <div>
+                <dt>Visual System</dt>
+                <dd>TouchDesigner</dd>
+              </div>
+              <div>
+                <dt>Methods</dt>
+                <dd>Real-time image processing, value mapping, and tiled composition</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="container failure-software-block">
+          <div class="failure-software-heading">
+            <p class="failure-kicker">Software Roles</p>
+            <h3>Tracking and image-making operate as one feedback loop.</h3>
+            <p>
+              MediaPipe supplies the changing gesture data; TouchDesigner turns
+              that data into a real-time visual response. The project depends on
+              the gap between these two layers rather than treating either tool as
+              a perfectly transparent interface.
+            </p>
+          </div>
+
+          <div class="failure-software-grid">
+            <article class="failure-software-card">
+              <figure class="failure-software-logo">
+                <img
+                  src="image/aesthetics-of-failure/mediapipe.jpg"
+                  alt="MediaPipe logo"
+                >
+              </figure>
+
+              <div class="failure-software-copy">
+                <span>01 · Input and Recognition</span>
+                <h3>MediaPipe</h3>
+                <p>
+                  MediaPipe is used for real-time hand-landmark tracking. It
+                  analyses the webcam image to locate points on the moving hand;
+                  their coordinates and changing distances provide the gesture
+                  data passed into the visual system.
+                </p>
+                <ul>
+                  <li>Webcam image input</li>
+                  <li>Hand-landmark detection</li>
+                  <li>Position and distance values</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="failure-software-card failure-software-card-reverse">
+              <figure class="failure-software-logo">
+                <img
+                  src="image/aesthetics-of-failure/touchdesigner-logo.png"
+                  alt="TouchDesigner logo"
+                >
+              </figure>
+
+              <div class="failure-software-copy">
+                <span>02 · Processing and Feedback</span>
+                <h3>TouchDesigner</h3>
+                <p>
+                  TouchDesigner receives the mapped tracking values and processes
+                  the imagery in real time. Pixelation, displacement, edge
+                  processing, noise, and repeated tiles are combined into a visual
+                  composition that changes as the hand moves.
+                </p>
+                <ul>
+                  <li>Real-time value mapping</li>
+                  <li>Image processing and compositing</li>
+                  <li>Responsive tiled output</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-video" class="failure-section failure-demo-section">
+        <div class="container">
+          <div class="failure-demo-heading">
+            <p class="failure-kicker">06 · Project Films</p>
+            <h2>Two views of the same system</h2>
+            <p>
+              The short introduction explains the project’s critical position;
+              the extended recording shows how gesture and visual processing
+              unfold together inside TouchDesigner.
+            </p>
+          </div>
+
+          <div class="failure-film-grid">
+            <article class="failure-film-card">
+              <div class="failure-demo-frame failure-youtube-frame">
+                <iframe
+                  src="https://www.youtube.com/embed/AAACPcZaxBM"
+                  title="Aesthetics of Failure project introduction"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="failure-film-copy">
+                <span>Project Introduction · 20 sec</span>
+                <h3>Beautiful Failures</h3>
+                <p>
+                  A concise introduction to recognition error as expressive
+                  visual language and a critique of precision and total control.
+                </p>
+              </div>
+            </article>
+
+            <article class="failure-film-card">
+              <div class="failure-demo-frame">
+                <video
+                  controls
+                  muted
+                  playsinline
+                  preload="metadata"
+                  poster="image/aesthetics-of-failure/aof-hero.jpg"
+                >
+                  <source
+                    src="image/aesthetics-of-failure/aesthetics-of-failure-demo.mp4"
+                    type="video/mp4"
+                  >
+                  Your browser does not support embedded video.
+                </video>
+              </div>
+              <div class="failure-film-copy">
+                <span>System Recording · 36 sec</span>
+                <h3>Gesture and Accumulation</h3>
+                <p>
+                  An extended view of hand tracking, changing image processes,
+                  and the gradual accumulation of fragmented visual states.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="failure-section failure-reflection-section">
+        <div class="container failure-split">
+          <div class="failure-section-heading">
+            <p class="failure-kicker">07 · Reflection</p>
+            <h2>Error as a collaborator</h2>
+          </div>
+
+          <div class="failure-section-copy">
+            <p>
+              The experiment reframes recognition error as a form of visual
+              authorship. Neither the participant nor the software controls the
+              final image alone; the work emerges through negotiation between
+              gesture, tracking, mapping, and system behaviour.
+            </p>
+            <p>
+              Future iterations could isolate different kinds of error, compare
+              stable and unstable mappings, and document how participants interpret
+              moments when the system does not respond as expected.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="project-footer failure-footer">
+      <div class="container project-footer-content">
+        <p>© 2026 Jinjing Zhou</p>
+
+        <div class="project-footer-links">
+          <a href="index.html#projects">Current Research</a>
+          <a href="#top">Back to Top ↑</a>
+          <a href="mailto:zhoujinjing2023@163.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
