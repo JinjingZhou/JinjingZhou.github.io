@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 444 415" role="img" aria-labelledby="title desc">
+  <title id="title">Open hand moving upward</title>
+  <desc id="desc">One five-fingered open palm and an upward arrow, drawn in white on a transparent background.</desc>
+  <g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170 153V59m0 0-20 20m20-20 20 20"/>
+
+    <!-- One right hand: four raised fingers and one outward thumb -->
+    <path d="M257 354v-20c0-19-7-35-18-50-10-14-15-31-15-49v-77c0-11 7-18 17-18s17 7 17 18v48-83c0-11 7-18 17-18s17 7 17 18v78-91c0-11 7-18 17-18s17 7 17 18v92-75c0-11 7-18 17-18s17 7 17 18v118l20-27c8-11 20-13 29-6 9 7 10 19 3 30l-42 61c-13 19-27 31-46 41"/>
+  </g>
+</svg>

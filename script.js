@@ -61,82 +61,111 @@ if (menuButton && mainNavigation) {
   });
 }
 
-let openProjectIndex = -1;
+const projectTabs = Array.from(
+  document.querySelectorAll(".project-tab-grid .project-card-header")
+);
+const projectTabGrid = document.querySelector(".project-tab-grid");
+const projectStack = document.querySelector(".project-stack");
+let activeProjectIndex = -1;
 
-function closeProjectDrawer() {
-  stackedProjectCards.forEach((card) => {
-    const headerButton = card.querySelector(".project-card-header");
+function closeProjectPreview(focusIndex = 0, moveFocus = false) {
+  projectTabs.forEach((tab, tabIndex) => {
+    const panelId = tab.getAttribute("aria-controls");
+    const panel = panelId ? document.getElementById(panelId) : null;
+    const card = panel?.closest(".project-card");
 
-    card.classList.remove("is-open", "is-shifted");
-    headerButton?.setAttribute("aria-expanded", "false");
+    tab.setAttribute("aria-expanded", "false");
+    tab.tabIndex = tabIndex === focusIndex ? 0 : -1;
+
+    if (card) {
+      card.hidden = true;
+      card.classList.remove("is-open");
+    }
   });
 
-  openProjectIndex = -1;
+  projectTabGrid?.classList.remove("has-selection");
+  projectStack?.classList.remove("has-preview");
+  activeProjectIndex = -1;
+
+  if (moveFocus) {
+    projectTabs[focusIndex]?.focus();
+  }
 }
 
-// 点击表头后，后面的卡片向下移动，当前卡片仍保留原来的层级。
-stackedProjectCards.forEach((card, cardIndex) => {
-  const headerButton = card.querySelector(".project-card-header");
+function activateProject(projectIndex, moveFocus = false) {
+  activeProjectIndex = projectIndex;
+  projectTabGrid?.classList.add("has-selection");
+  projectStack?.classList.add("has-preview");
 
-  if (!headerButton) {
-    return;
+  projectTabs.forEach((tab, tabIndex) => {
+    const isActive = tabIndex === projectIndex;
+    const panelId = tab.getAttribute("aria-controls");
+    const panel = panelId ? document.getElementById(panelId) : null;
+    const card = panel?.closest(".project-card");
+
+    tab.setAttribute("aria-expanded", String(isActive));
+    tab.tabIndex = isActive ? 0 : -1;
+
+    if (card) {
+      card.hidden = !isActive;
+      card.classList.toggle("is-open", isActive);
+    }
+  });
+
+  if (moveFocus) {
+    projectTabs[projectIndex]?.focus();
   }
+}
 
-  headerButton.addEventListener("click", () => {
-    // 手机端没有粘性堆叠，因此不执行抽拉动画。
-    if (window.matchMedia("(max-width: 700px)").matches) {
+projectTabs.forEach((tab, tabIndex) => {
+  tab.addEventListener("click", () => {
+    if (activeProjectIndex === tabIndex) {
+      closeProjectPreview(tabIndex);
+    } else {
+      activateProject(tabIndex);
+    }
+  });
+
+  tab.addEventListener("keydown", (event) => {
+    let nextIndex = tabIndex;
+
+    if (event.key === "ArrowRight") {
+      nextIndex = (tabIndex + 1) % projectTabs.length;
+    } else if (event.key === "ArrowLeft") {
+      nextIndex = (tabIndex - 1 + projectTabs.length) % projectTabs.length;
+    } else if (event.key === "ArrowDown") {
+      nextIndex = (tabIndex + 2) % projectTabs.length;
+    } else if (event.key === "ArrowUp") {
+      nextIndex = (tabIndex - 2 + projectTabs.length) % projectTabs.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = projectTabs.length - 1;
+    } else {
       return;
     }
 
-    if (openProjectIndex === cardIndex) {
-      closeProjectDrawer();
-      return;
-    }
-
-    stackedProjectCards.forEach((otherCard, otherIndex) => {
-      const otherButton = otherCard.querySelector(".project-card-header");
-      const isOpen = otherIndex === cardIndex;
-      const shouldMoveDown = otherIndex > cardIndex;
-
-      otherCard.classList.toggle("is-open", isOpen);
-      otherCard.classList.toggle("is-shifted", shouldMoveDown);
-      otherButton?.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    openProjectIndex = cardIndex;
+    event.preventDefault();
+    activateProject(nextIndex, true);
   });
 });
+
+if (projectTabs.length === stackedProjectCards.length && projectTabs.length > 0) {
+  closeProjectPreview();
+}
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && openProjectIndex !== -1) {
-    closeProjectDrawer();
+  if (event.key === "Escape" && activeProjectIndex !== -1) {
+    closeProjectPreview(activeProjectIndex, true);
   }
 });
 
-// 用户继续浏览页面时，让抽屉平滑收回，再恢复正常的 1→6 粘性顺序。
-function closeDrawerBeforeScrolling() {
-  if (openProjectIndex !== -1) {
-    closeProjectDrawer();
-  }
-}
+document.addEventListener("click", (event) => {
+  const clickedInsideProjects = event.target.closest(
+    ".project-tab-grid, .project-stack"
+  );
 
-window.addEventListener("wheel", closeDrawerBeforeScrolling, {
-  passive: true
-});
-
-window.addEventListener("touchmove", closeDrawerBeforeScrolling, {
-  passive: true
-});
-
-window.addEventListener("scroll", closeDrawerBeforeScrolling, {
-  passive: true
-});
-
-window.addEventListener("resize", () => {
-  if (
-    openProjectIndex !== -1 &&
-    window.matchMedia("(max-width: 700px)").matches
-  ) {
-    closeProjectDrawer();
+  if (!clickedInsideProjects && activeProjectIndex !== -1) {
+    closeProjectPreview(activeProjectIndex);
   }
 });

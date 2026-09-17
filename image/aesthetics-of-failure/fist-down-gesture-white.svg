@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 444 415" role="img" aria-labelledby="title desc">
+  <title id="title">Clenched fist moving down</title>
+  <desc id="desc">A white outlined clenched fist with a white downward arrow on a transparent background.</desc>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="13" d="M70 59v94m0 0-20-20m20 20 20-20"/>
+    <path stroke-width="13" d="M174 362v-18c0-20-11-30-25-44-18-18-24-34-22-52 1-17 8-31 19-40l3-3"/>
+    <path stroke-width="13" d="M149 267v-72c0-17 10-29 24-29s21 10 21 25v-18c0-17 10-29 24-29s22 11 22 28v4c0-17 10-28 24-28s22 11 22 28v8c0-16 9-27 23-27s22 11 22 28v12c0-15 8-25 21-25 15 0 23 12 23 30v49c0 38-7 57-21 83-8 15-12 31-12 50v8"/>
+  </g>
+</svg>
